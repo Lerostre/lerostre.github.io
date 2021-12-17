@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} Анкета {% endblock %}
+
+{% block content %}
+	<body>
+		<h2>Очень важный опрос</h2>
+		<form class="container" action="/process">
+			<h2>Вопросы</h2>
+            {% for question in questions %}
+			    <div class="row">
+				    <p class="col-md-6">{{question.text}}</p>
+					<table class="col-md-8">
+						<tr>
+							<td><input class="radio" type="radio" name="q{{ question.id }}" value=5></td>
+							<td><input class="radio" type="radio" name="q{{ question.id }}" value=4></td>
+							<td><input class="radio" type="radio" name="q{{ question.id }}" value=3></td>
+							<td><input class="radio" type="radio" name="q{{ question.id }}" value=2></td>
+							<td><input class="radio" type="radio" name="q{{ question.id }}" value=1></td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+							<td>5</td>
+						</tr>
+					</table>
+			    </div>
+            {% endfor %}
+			<div class="row">
+				<input class="submit" type="submit" name="submit" value="Отправить">
+			</div>
+		</form>
+
+{% endblock %}

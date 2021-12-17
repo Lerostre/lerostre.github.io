@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} Анкета {% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <td>Средний возраст</td>
+            <td>{{ all_info['age_mean'] }}</td>
+        </tr>
+        <tr>
+            <td>Минимальный возраст</td>
+            <td>{{ all_info['age_min'] }}</td>
+        </tr>
+        <tr>
+            <td>Максимальный возраст</td>
+            <td>{{ all_info['age_max'] }}</td>
+        </tr>
+        {% for i in range(6) %}
+            <tr>
+                <td>{{'Средний ответ на вопрос' ~ ' ' ~ (i+1)}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ all_info['q_mean'][i] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
