@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %} Анкета {% endblock %}
+
+{% block content %}
+	<body style="background-image: url('static/abs-bg.jpg');
+				z-index:-1;
+				background-repeat: no-repeat;
+				background-color: beige;
+				height: 90.85vh;">
+		<form class="container" action="/process">
+			<h2 style="margin-top: 20px">Анкета информанта</h2>
+			<div class="row">
+				<div class="col-md-4">Возраст</div>
+				<div class="col-md-4"><input type="number" name="age" style="background-color: beige;"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">Гендер</div>
+				<select name="gender" class="col-md-4" style="margin-left: 15px;
+															  height: 30px;
+															  max-width: 190px;
+															  background-color: beige;
+															  border: 1.5px black solid">
+					<option value="male">м</option>
+					<option value="female">ж</option>
+					<option value="other">другой</option>
+				</select>
+			</div>
+			<div class="row">
+				<div class="col-md-4">Уровень образования</div>
+				<select name="education" class="col-md-4" style="margin-left: 15px;
+																 height: 30px;
+																 max-width: 190px;
+																 background-color: beige;
+																 border: 1.5px black solid">>
+					<option value="none">нет</option>
+					<option value="kindergarden">детский сад</option>
+					<option value="school_9">9 классов школы</option>
+					<option value="school_11">11 классов школы</option>
+					<option value="college">среднее специальное</option>
+					<option value="student">неоконченное высшее</option>
+					<option value="bachelor">бакалавриат/специалитет</option>
+					<option value="master">магистратура</option>
+					<option value="phd">аспирантура</option>
+					<option value="candidate">кандидат наук</option>
+					<option value="doctor">доктор наук</option>
+				</select>
+			</div>
+            <div class="row">
+				<div class="col-md-4">Родной язык</div>
+				<div class="col-md-4"><input type="text" name="language" style="background-color: beige;"></div>
+			</div>
+			<h2>Вопросы</h2>
+            {% for question in questions %}
+			    <div class="row">
+				    <p class="col-md-6">{{ question.id }}. {{question.text}}</p>
+				</div>
+				<div class="row">
+					<link rel="stylesheet" type="text/css" href="static/css/rating.css" />
+					<div class="rating">
+						<table>
+							<input type="radio" name="q{{ question.id }}" id="rata5{{question.id}}" value=5><label for="rata5{{question.id}}">5</label>
+							<input type="radio" name="q{{ question.id }}" id="rata4{{question.id}}" value=4><label for="rata4{{question.id}}">4</label>
+							<input type="radio" name="q{{ question.id }}" id="rata3{{question.id}}" value=3><label for="rata3{{question.id}}">3</label>
+							<input type="radio" name="q{{ question.id }}" id="rata2{{question.id}}" value=2><label for="rata2{{question.id}}">2</label>
+							<input type="radio" name="q{{ question.id }}" id="rata1{{question.id}}" value=1><label for="rata1{{question.id}}">1</label>  
+							</table>  
+					</div>
+			    </div>
+            {% endfor %}
+			<link rel="stylesheet" type="text/css" href="static/css/main.css" />
+			<div style="position: relative">
+                <a href="/questions" class="main-btn" style="background-color: #3A3B3C;
+															 margin-top: 15px"><span>Закончить</span></a>
+            </div>
+		</form>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+load database
+    from 'enquete.db'
+    into postgresql:///enquete_post
+
+with include drop, quote identifiers, create tables, create indexes, reset sequences
+
+set work_mem to '16MB', maintenance_work_mem to '512 MB';

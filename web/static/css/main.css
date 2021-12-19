@@ -1,0 +1,67 @@
+.main-btn{
+  display: block;
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  margin-top: 8%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #E1D9D1;
+  border: 2px solid #E1D9D1;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+}
+
+.main-btn span{
+  position: relative;
+  z-index: 2;
+}
+
+.main-btn:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #E1D9D1;
+  transition: all .35s;
+}
+
+.main-btn:hover{
+  color: black;
+}
+
+.main-btn:hover:after{
+  width: 100%;
+}
+
+.content{
+  display:flex; 
+  justify-content:center;
+  align-items:flex-end;
+  height: 55%;
+  padding-top: 33.5%;
+  color: #E1D9D1;
+}
+
+.subcontent{
+  background-color: rgba(245, 245, 220, 0.3);
+  backdrop-filter: blur(8px);
+  width: 40%;
+  margin-right: 10%;
+  padding: 2%;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.pretty-image{
+  height: 90.85vh;
+  background-image: url("https://www.uniurb.it/it/portale/img/w-uppercase-and-lowercase-wooden-letters-background-PF8RNQV.jpg");
+}

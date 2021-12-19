@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} База фильмов {% endblock %}
+
+{% block content %}
+    <div class="pretty-image">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+    <div class="content">
+        <div style="width: 50%"></div>
+        <div class="subcontent">
+            <h1>Добро пожаловать!</h1>
+            <p>Приглашаем вас поучаствовать в небольшом опросе. Вам потребуется ответить на несколько вопросов о вашем
+                отношении к иностранным языкам. Это займёт не больше 5 минут вашего врвмени.
+
+            <div style="position: relative">
+                <a href="/questions" class="main-btn"><span>Принять участие в опросе</span></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
