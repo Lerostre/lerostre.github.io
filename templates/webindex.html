@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<title>грустный сайт</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Tahoma";}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Tahoma";
+  letter-spacing: 3px;
+}
+.parallax {
+            background-image: url("static/bholder.jpg");
+            
+            height: 500px;
+            
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+}
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax__layer--back {
+  transform: translateZ(-10px);
+}
+div[class*=box] {
+  height: 33.33%;
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  color: "black";
+  width: 250px;
+  cursor: pointer;
+}
+.btn-one {
+  color: black;
+  transition: all 0.3s;
+  position: relative;
+}
+.btn-one span {
+  transition: all 0.3s;
+}
+.btn-one::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+}
+.btn-one:hover span {
+  letter-spacing: 2px;
+}
+.btn-one:hover::before {
+  opacity: 1; 
+  transform: scale(1, 1);
+}
+.btn-one::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255,255,255,0.2);
+}
+.btn-one:hover::after {
+  opacity: 0; 
+  transform: scale(0.1, 1);
+}
+</style>
+<body>
+
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; background-color: rgba(255,155,155,0.64) !important;">
+    <div class="w3-left w3-hide-small">
+        <a href="#home" class="w3-bar-item w3-button w3-hover-pale-red btn-one">кашевары</a>
+    </div>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#data" class="w3-bar-item w3-button w3-hover-pale-red btn-one">Данные</a>
+      <a href="#mostcommon" class="w3-bar-item w3-button w3-hover-pale-red btn-one">Ингредиенты</a>
+      <a href="#pairs" class="w3-bar-item w3-button w3-hover-pale-red btn-one">Пары продуктов</a>
+      <a href="#cals" class="w3-bar-item w3-button w3-hover-pale-red btn-one">Калории</a>
+      <a href="#recipes" class="w3-bar-item w3-button w3-hover-pale-red btn-one">Рецепты</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <div class="parallax">
+  </div>
+  <div class="w3-display-bottomright w3-padding-large">
+      <h1 class="w3-xxlarge" style="padding-right: 100px !important;">Статистика</h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="data">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="static/m_merged.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Наши данные</h1><br>
+      <p class="w3-large">
+        Набор рецептов (что в какое блюдо входит и в каком количестве) вместе с набором ингредиентов и типом самого блюда</p>
+        <p class="w3-large">
+            Мы хотели сделать</p>
+        <p class="w3-large w3-text-grey">
+            <p class="w3-text-grey">1. Рекомендацию рецепта по имеющимся ингредиентам</p>
+            <p class="w3-text-grey">2. Найти наиболее популярные и непопулярные ингредиенты</p>
+            <p class="w3-text-grey">3. Установить, с чем сочетается каждый из продуктов</p>
+            <p class="w3-text-grey">4. Проранжировать рецепты по сложности, в зависимости от числа ингредиентов</p>
+            <p class="w3-text-grey">5. Выявить калорийность каждого рецепта при помощи дополнительной БД</p>
+        </p>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <div class="w3-row w3-padding-64" id="mostcommon">
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center">Поиск рецепта по ингредиентам</h1><br>
+      <p class="w3-text-grey">Можно найти случайный рецепт, указав желаемые ингредиенты через запятую</p>
+      <form method="POST" class="w3-center">
+        <input name="text" placeholder="продукты">
+        <input type="submit" class="w3-button w3-hover-pale-red btn-one">
+      </form>
+      <div id="result_div">
+        {{ result }}
+      </div>
+    </div>
+    
+    <div class="w3-col l6 w3-padding-large">
+      <img src="static/shaurma.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Contact Section -->
+  <div class="w3-row w3-padding-64" id="pairs">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="/w3images/tablesetting2.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Распределение продуктов по парам</h1><br>
+      <p class="w3-large w3-text-grey w3-hide-medium">На диаграмме показана корреляция между</p>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64" id="cals">
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center">Самые калорийные рецепты</h1><br>
+      <p class="w3-text-grey">Сделано при помощи вспомогательной базы данных. Взята из https://dietadiary.com/tablica-kalorijnosti-productov. Сперва нормализовали граммовку каждого продукта, после чего расчитали итоговую калорийность</p><br> 
+    </div>
+    
+    <div class="w3-col l6 w3-padding-large">
+      <img src="static/abv.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+  </div>
+  
+  <div class="w3-row w3-padding-64" id="recipes">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="static/m_merged (1).png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Самые лёгкие и сложные рецепты</h1><br>
+      <p class="w3-large w3-text-grey w3-hide-medium">В зависимости от числа ингредиентов в блюде, рецепты были ранжированы по своей сложности</p>
+  </div>
+
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+</footer>
+
+</body>
+</html>
